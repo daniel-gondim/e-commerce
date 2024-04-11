@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CadastroProdutoComponent } from './cadastro-produto.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('CadastroProdutoComponent', () => {
   let component: CadastroProdutoComponent;
@@ -8,7 +9,7 @@ describe('CadastroProdutoComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CadastroProdutoComponent]
+      imports: [CadastroProdutoComponent, HttpClientTestingModule]
     })
     .compileComponents();
     
@@ -17,7 +18,7 @@ describe('CadastroProdutoComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('deve criar', () => {
     expect(component).toBeTruthy();
   });
 });
