@@ -7,15 +7,21 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './tabela-produto.component.html',
-  styleUrl: './tabela-produto.component.css'
+  styleUrl: './tabela-produto.component.css',
 })
 export class TabelaProdutoComponent {
   produtos: Produto[] = [];
 
-  constructor(private produtoService: ProdutoService) { }
+  constructor(private produtoService: ProdutoService) {}
 
   ngOnInit() {
-    this.produtos = this.produtoService.listarProdutos();
+    this.produtoService.listarProdutos().subscribe(
+      (produtos) => {
+        this.produtos = produtos;
+      },
+      (error) => {
+        console.error('Erro ao listar produtos:', error);
+      }
+    );
   }
-
 }
