@@ -41,6 +41,26 @@ describe('ProdutoService', () => {
 
     const req = httpMock.expectOne('http://localhost:3000/produtos');
     expect(req.request.method).toBe('GET');
+
+    // Flush the request after setting expectations
     req.flush(dummyProdutos);
+  });
+
+  it('deve lidar com erro ao listar produtos', () => {
+    const errorMessage = 'Erro de rede';
+
+    service.listarProdutos().subscribe(
+      () => fail('Deveria ter falhado'),
+      (error) => {
+        expect(error).toBeTruthy();
+        expect(error.message).toBe(errorMessage);
+      }
+    );
+
+    const req = httpMock.expectOne('http://localhost:3000/produtos');
+    req.error(new ErrorEvent('network error'), {
+      status: 404,
+      statusText: errorMessage,
+    });
   });
 });

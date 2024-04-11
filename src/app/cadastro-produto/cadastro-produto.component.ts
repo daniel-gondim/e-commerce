@@ -5,7 +5,6 @@ import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-cadastro-produto',
   standalone: true,
-  imports: [FormsModule],
   templateUrl: './cadastro-produto.component.html',
   styleUrl: './cadastro-produto.component.css',
 })

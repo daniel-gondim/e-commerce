@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Produto, ProdutoService } from '../produto.service';
 import { CommonModule } from '@angular/common';
 
@@ -9,7 +9,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './tabela-produto.component.html',
   styleUrl: './tabela-produto.component.css',
 })
-export class TabelaProdutoComponent {
+export class TabelaProdutoComponent implements OnInit{
   produtos: Produto[] = [];
 
   constructor(private produtoService: ProdutoService) {}

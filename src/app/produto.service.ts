@@ -1,6 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, map } from 'rxjs';
+import { Observable, } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { TabelaProdutoComponent } from './tabela-produto/tabela-produto.component';
+
 
 export interface Produto {
   id: number;
